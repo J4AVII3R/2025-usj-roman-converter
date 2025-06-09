@@ -111,3 +111,9 @@ describe('romanToInteger - AI-Assisted Test Cases (Set B)', function () {
     expect(() => romanToInteger('VX')).to.throw();
   });
 });
+
+describe('Force failure test', function () {
+  it('should fail on purpose', function () {
+    expect(1 + 1).to.equal(3); // This will fail
+  });
+});
