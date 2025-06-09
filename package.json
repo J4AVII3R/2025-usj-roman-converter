@@ -1,0 +1,17 @@
+{
+  "name": "roman-converter",
+  "version": "1.0.0",
+  "description": "Roman numeral converter website with automated functional tests",
+  "author": "Javier Alfranca",
+  "scripts": {
+    "lint": "eslint script.js tests.js",
+    "test": "http-server -p 8080 & mocha-headless-chrome -f http://localhost:8080/test.html --exit"
+  },
+  "devDependencies": {
+    "chai": "^5.1.2",
+    "eslint": "^9.0.0",
+    "http-server": "^14.1.1",
+    "mocha": "^11.1.0",
+    "mocha-headless-chrome": "^4.0.0"
+  }
+}
