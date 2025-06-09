@@ -29,6 +29,10 @@ function integerToRoman(number) {
     }
   }
 
+  gtag('event', 'integerToRomanCalculated', {
+'romanValue': roman
+});
+
   return roman;
 }
 
