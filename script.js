@@ -29,10 +29,6 @@ function integerToRoman(number) {
     }
   }
 
-  gtag('event', 'integerToRomanCalculated', {
-'romanValue': roman
-});
-
   return roman;
 }
 
@@ -82,11 +78,6 @@ function romanToInteger(romanInput) {
   if (total < 1 || total > 3999) {
     throw new Error('Roman numeral must represent a value between 1 and 3999.');
   }
-
-
-gtag('event', 'romanToIntegerCalculated', {
-'integerValue': total
-});
 
   return total;
 }
