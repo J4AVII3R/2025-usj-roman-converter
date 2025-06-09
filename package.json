@@ -5,7 +5,10 @@
   "author": "Javier Alfranca",
   "scripts": {
     "lint": "eslint script.js tests.js",
-    "test": "http-server -p 8080 & mocha-headless-chrome -f http://localhost:8080/test.html --exit"
+    "lint:fix": "eslint script.js tests.js --fix",
+    "test": "http-server -p 8080 & mocha-headless-chrome -f http://localhost:8080/test.html --exit",
+    "start": "http-server -p 8080",
+    "pretest": "npm run lint"
   },
   "devDependencies": {
     "chai": "^5.1.2",
