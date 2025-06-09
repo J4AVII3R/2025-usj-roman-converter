@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Number & Roman Numerals Converter</title>
+  <link rel="stylesheet" href="styles.css"/>
+</head>
+<body>
+  <h2>Software Quality Task#1</h2>
+  <div class="container">
+    <h1>Roman ↔ Number Converter</h1>
+
+    <label for="mode">Choose conversion mode:</label>
+    <select id="mode" onchange="toggleMode()">
+      <option value="toRoman">Number to Roman</option>
+      <option value="toNumber">Roman to Number</option>
+    </select>
+
+    <input type="text" id="input" placeholder="Enter a number from 1 to 9999" />
+    
+    <button class="convert" onclick="convert()">Convert</button>
+    <button class="clear" onclick="clearFields()">Clear</button>
+    
+    <div id="result"></div>
+  </div>
+
+  <div class="photo">
+    <img src="background.jpg" alt="Photo" />
+  </div>
+
+  <div class="footer">
+    &copy; 2025 <br />
+    @author: Javier Alfranca Supervia
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
