@@ -1,4 +1,4 @@
-function integerToRoman(number) {
+function integerToRomanFail(number) {
   if (typeof number !== 'number' || !Number.isInteger(number) || number < 1 || number > 3999) {
     throw new Error('Input must be an integer between 1 and 3999.');
   }
