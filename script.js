@@ -83,6 +83,11 @@ function romanToInteger(romanInput) {
     throw new Error('Roman numeral must represent a value between 1 and 3999.');
   }
 
+
+gtag('event', 'romanToIntegerCalculated', {
+'integerValue': total
+});
+
   return total;
 }
 
