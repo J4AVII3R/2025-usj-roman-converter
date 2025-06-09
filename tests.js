@@ -1,4 +1,10 @@
 const expect = chai.expect;
+// This test is intentionally designed to fail to test the CI pipeline
+describe('Intentional CI Fail Test', function () {
+  it('should fail on purpose to block deployment', function () {
+    expect(42).to.equal(0); // ❌ Wrong on purpose
+  });
+});
 
 describe('integerToRoman - Manual Test Cases (Set A)', function () {
   it('should convert 1 to \'I\'', function () {
