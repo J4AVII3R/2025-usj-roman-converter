@@ -3,6 +3,9 @@ function integerToRoman(number) {
     throw new Error('Input must be an integer between 1 and 3999.');
   }
 
+
+console.log("forzar error comillas dobles");
+  
   const values = [
     { value: 1000, symbol: 'M' },
     { value: 900, symbol: 'CM' },
