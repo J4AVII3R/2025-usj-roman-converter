@@ -1,0 +1,73 @@
+name: CD Roman Converter
+
+on:
+  push:
+    branches: ['main']
+  pull_request:
+    types: [opened, reopened]
+    branches: ['main']
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Set-up Node
+        uses: actions/setup-node@v1
+        with:
+          node-version: 20.x
+      - name: Install Dependencies
+        run: npm install
+      - name: Lint Code
+        run: npm run lint
+
+  test:
+    runs-on: ubuntu-latest
+    needs: lint
+    steps:
+      - uses: actions/checkout@v3
+      - name: Set-up Node
+        uses: actions/setup-node@v1
+        with:
+          node-version: 20.x
+      - name: Install Dependencies
+        run: npm install
+      - name: Run Tests
+        run: npm run test
+      - run: echo "🍏 This job's status is ${{ job.status }}."
+
+  build:
+    runs-on: ubuntu-latest
+    needs: test
+    steps:
+      - uses: actions/checkout@v3
+      - name: Create dist directory
+        run: mkdir dist
+      - name: Copy site files
+        run: |
+          cp index.html dist/
+          cp script.js dist/
+          cp styles.css dist/
+          cp background.jpg dist/ || echo "No background image found"
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: 'dist'
+
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Setup GitHub Pages
+        uses: actions/configure-pages@v2
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
